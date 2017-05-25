@@ -1,0 +1,27 @@
+<mvc:View
+	displayBlock="true"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	controllerName="opensap.myapp.controller.App">
+	<Carousel>
+		<pages>
+			<Image
+				src="https://www.w3schools.com/css/paris.jpg"
+				height="600px"/>
+			<Image
+				src="https://www.w3schools.com/css/trolltunga.jpg"
+				height="600px"/>
+		</pages>
+	</Carousel>
+	
+	<Button
+		text="{i18n>showHelloButtonText}"
+		press="onShowHello"/>
+	<Input
+		value="{helloPanel>/recipient/name}"
+		description="Hello {helloPanel>/recipient/name}"
+		valueLiveUpdate="true"
+		width="60%"/>
+		
+	
+</mvc:View>
