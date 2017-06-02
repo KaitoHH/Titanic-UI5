@@ -1,6 +1,6 @@
 {
 	"_version": "1.3.0",
-	
+
 	"sap.app": {
 		"_version": "1.3.0",
 		"id": "opensap.myapp",
@@ -8,6 +8,17 @@
 		"i18n": "i18n/i18n.properties",
 		"title": "{{appTitle}}",
 		"description": "{{appDescription}}",
+
+		"dataSources": {
+			"invoiceRemote": {
+				"uri": "/destinations/northwind/V2/Northwind/Northwind.svc/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0"
+				}
+			}
+		},
+
 		"applicationVersion": {
 			"version": "1.0.0"
 		}
@@ -46,18 +57,57 @@
 				}
 			}
 		},
-	   "models": {
-	   	    "i18n": {
+		"models": {
+			"i18n": {
 				"type": "sap.ui.model.resource.ResourceModel",
 				"settings": {
 					"bundleName": "opensap.myapp.i18n.i18n"
 				}
+			},
+			"invoice": {
+				"dataSource": "invoiceRemote"
 			},
 
 			"helloPanel": {
 				"type": "sap.ui.model.json.JSONModel",
 				"uri": "model/HelloPanel.json"
 			}
+		},
+		
+	"routing": {
+	  "config": {
+		"routerClass": "sap.m.routing.Router",
+		"viewType": "XML",
+		"viewPath": "opensap.myapp.view",
+		"controlId": "app",
+		"controlAggregation": "pages"
+	  },
+	  "routes": [
+		{
+		  "pattern": "",
+		  "name": "overview",
+		  "target": "overview"
+		},
+		{
+		  "pattern": "detail/{invoicePath}",
+		  "name": "detail",
+		  "target": "detail"
+		}
+	  ],
+	  "targets": {
+		"overview": {
+		  "viewName": "Overview"
+		},
+		"detail": {
+		  "viewName": "Detail"
+		}
+	  }
+	},
+
+		"resources": {
+			"css": [{
+				"uri": "css/style.css"
+			}]
 		},
 
 		"contentDensities": {

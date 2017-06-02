@@ -1,0 +1,23 @@
+<mvc:View  xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="opensap.myapp.controller.HelloPanel">
+	<!--	<Carousel>
+		<pages>
+			<Image
+				src="https://www.w3schools.com/css/paris.jpg"
+				height="600px"/>
+			<Image
+				src="https://www.w3schools.com/css/trolltunga.jpg"
+				height="600px"/>
+		</pages>
+	</Carousel>
+	-->
+ 
+		<Panel headerText="{i18n>helloPanelTitle}" class="sapUiResponsiveMargin" width="auto">
+			<content>
+				<Button icon="sap-icon://world" text="{i18n>openDialogButtonText}" press="onOpenDialog" class="sapUiSmallMarginEnd"/>
+				<Button text="{i18n>showHelloButtonText}" press="onShowHello" class="myCustomButton"/>
+				<Input value="{helloPanel>/recipient/name}" description="Hello {helloPanel>/recipient/name}" valueLiveUpdate="true" width="60%"
+					class="myCustomText"/>
+			</content>
+		</Panel>
+ 
+</mvc:View>

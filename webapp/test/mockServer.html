@@ -3,7 +3,7 @@
 	<head>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta charset="utf-8">
-		<title>SAPUI5 Walkthrough</title> 
+		<title>SAPUI5 Walkthrough-- Test Page</title> 
 	<script
 		id="sap-ui-bootstrap"
 		src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
@@ -12,10 +12,28 @@
 		data-sap-ui-compatVersion="edge"
 		data-sap-ui-preload="async"
 		data-sap-ui-resourceroots='{
-			"opensap.myapp": "./"
+			"opensap.myapp": "../"
 		}'>
 	</script>
 		<script>
+			 sap.ui.getCore().attachInit(function () {
+				sap.ui.require([
+					"opensap/myapp/localService/mockserver",
+					"sap/m/Shell",
+					"opensap/myapp/core/ComponentContainer"
+				], function (mockserver, Shell, ComponentContainer) {
+					mockserver.init();
+
+					new Shell({
+						app : new ComponentContainer({
+							height: "100%",
+							name: "opensap/myapp"
+						})
+					}).placeAt("content");
+				});
+
+			});
+		/*
 			sap.ui.getCore().attachInit(function () { 
 			 new sap.m.Shell({
                app :  new sap.ui.core.ComponentContainer({
@@ -23,21 +41,7 @@
 				height: "100%"
 			})
 			}).placeAt("content");
-				
-    /*				sap.ui.xmlview({
-					viewName:"opensap.myapp.view.App"
-				}).placeAt("content");
-	/*				var oImage = new sap.m.Image({
-					src: "https://www.w3schools.com/css/trolltunga.jpg"
-				 
-				}).placeAt("content");
-				
-				oImage.setHeight("400px");
-				new sap.m.Text({
-					text : "SAPUI5 is loaded successfully!"
-				}).placeAt("content");
-    */
-			});
+		*/	
 		</script>
 
 	</head>

@@ -3,7 +3,8 @@
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns="sap.m"
 	controllerName="opensap.myapp.controller.App">
-	<Carousel>
+    <!--	<App class="myApp" id="app"/>
+  	<Carousel>
 		<pages>
 			<Image
 				src="https://www.w3schools.com/css/paris.jpg"
@@ -13,15 +14,17 @@
 				height="600px"/>
 		</pages>
 	</Carousel>
-	
-	<Button
-		text="{i18n>showHelloButtonText}"
-		press="onShowHello"/>
-	<Input
-		value="{helloPanel>/recipient/name}"
-		description="Hello {helloPanel>/recipient/name}"
-		valueLiveUpdate="true"
-		width="60%"/>
+	-->
+	<App class="myApp" id="app">
+		<pages>
+		    <Page title="{i18n>homePageTitle}">
+		    	<content>
+		    	  <mvc:XMLView viewName="opensap.myapp.view.HelloPanel"/>
+		    	  <mvc:XMLView viewName="opensap.myapp.view.InvoiceList"/>
+		    	</content>
+		    </Page>	
+		</pages>
 		
+	</App>
 	
 </mvc:View>

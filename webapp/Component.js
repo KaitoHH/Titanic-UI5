@@ -14,6 +14,9 @@ sap.ui.define([
 			UIComponent.prototype.init.apply(this, arguments);
 
 			// additional initialization can be done here
+			
+			// create the views based on the url/hash
+		 	this.getRouter().initialize();
 		}
 
 	});
